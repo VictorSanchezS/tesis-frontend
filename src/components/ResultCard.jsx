@@ -68,58 +68,18 @@ export default function ResultCard({ result }) {
           {/* GradCAM compacto */}
           {gradcam && (
             <div>
-              <h4 className="font-semibold text-slate-800 mb-2">Grad-CAM</h4>
+              <h4 className="font-semibold text-slate-800 mb-2">Grad-CAM++</h4>
               <img
                 src={`data:image/png;base64,${gradcam}`}
                 className="rounded-xl shadow-md max-h-64 mx-auto"
-                alt="GradCAM"
+                alt="GradCAM++"
               />
             </div>
           )}
         </div>
       </div>
 
-      {/* 🔥 SECCIÓN XAI COMPLETA */}
-      {gradcam && (
-        <div className="mt-10 border-t pt-6">
-          <h3 className="text-lg font-semibold text-slate-800 mb-6">
-            Explicabilidad (XAI)
-          </h3>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            
-            {/* Uña seleccionada */}
-            {selectedNail?.crop_image_base64 && (
-              <div className="bg-white rounded-xl shadow p-4">
-                <h4 className="font-semibold text-slate-800 mb-2 flex items-center gap-2">
-                  <span className="w-3 h-3 bg-green-500 rounded-full"></span>
-                  Uña seleccionada
-                </h4>
-
-                <img
-                  src={`data:image/jpeg;base64,${selectedNail.crop_image_base64}`}
-                  alt="Recorte de la uña"
-                  className="rounded-lg shadow-md w-full max-h-80 object-contain mx-auto"
-                />
-              </div>
-            )}
-
-            {/* GradCAM++ */}
-            <div className="bg-white rounded-xl shadow p-4">
-              <h4 className="font-semibold text-slate-800 mb-2 flex items-center gap-2">
-                <span>🔥</span> Grad-CAM++
-              </h4>
-
-              <img
-                src={`data:image/png;base64,${gradcam}`}
-                alt="GradCAM"
-                className="rounded-lg shadow-md w-full max-h-80 object-contain mx-auto"
-              />
-            </div>
-
-          </div>
-        </div>
-      )}
+    
 
     </div>
   );
