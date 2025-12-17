@@ -25,6 +25,7 @@ export default function UploadForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     if (!imageFile) {
       setErrorMsg("Por favor, selecciona una imagen primero.");
       return;
@@ -43,18 +44,18 @@ export default function UploadForm() {
         body: formData,
       });
 
-      if (!res.ok) throw new Error("Error al procesar la imagen");
+      if (!res.ok) {
+        throw new Error(`HTTP ${res.status}`);
+      }
 
       const data = await res.json();
       setResult(data);
     } catch (err) {
       console.error(err);
-      setErrorMsg(
-        "No se pudo conectar al servidor. Si Render está en plan free, puede tardar en activarse. Intenta nuevamente."
-      );
+      setErrorMsg("No se pudo analizar la imagen. Intente nuevamente.");
+    } finally {
+      setLoading(false); // 🔥 ESTA LÍNEA ES LA CLAVE
     }
-
-    setLoading(false);
   };
 
   return (

@@ -70,7 +70,7 @@ export default function ResultCard({ result }) {
             <div>
               <h4 className="font-semibold text-slate-800 mb-2">Grad-CAM++</h4>
               <img
-                src={`data:image/png;base64,${gradcam}`}
+                src={`data:image/jpeg;base64,${gradcam}`}
                 className="rounded-xl shadow-md max-h-64 mx-auto"
                 alt="GradCAM++"
               />
